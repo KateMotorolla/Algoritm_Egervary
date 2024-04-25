@@ -122,6 +122,17 @@ bool check_result(const vector<vector<int>>& result_matrix, int num_vacancies, i
         if (counter != 1)
             return false;
     }
+    for (int j = 0; j < num_applicants; ++j)
+    {
+        int counter = 0;
+        for (int i = 0; i < num_vacancies; ++i)
+        {
+            if (result_matrix[i][j] == 1)
+                ++counter;
+        }
+        if (counter > 1)
+            return false;
+    }
     return true;
 }
 void chain_dfs(const vector<vector<int>>& applicant_matrix, int num_vacancies, int num_applicants, stack<int, vector<int>>& chain, int val, int index)
